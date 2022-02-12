@@ -8,7 +8,7 @@
 - Use the shortcut CMD + J to open up the terminal in VSCode
 - Run the following command
   > yarn dev
-- Open up [localhost:3000](localhost:3000) in your browser
+- Open up [localhost:3000](http://localhost:3000) in your browser
 - Make changes to your code and use the shortcut CMD + S to save and see the changes in your browser
 
 # Deploying your app
