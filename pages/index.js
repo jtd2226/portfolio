@@ -1,7 +1,22 @@
 import DeckGL from '@deck.gl/react';
 import { LineLayer } from '@deck.gl/layers';
-import Request from 'network/cache';
+import Request from 'stonklesjs/network/cache';
 import React from 'react';
+import styled from 'stonklesjs/ui';
+
+const Page = styled.div`
+  background: blue;
+  color: white;
+`;
+
+const Header = styled.h1`
+  border: 1px solid green;
+  color: green;
+`;
+
+const RedHeader = styled(Header)`
+  color: purple;
+`;
 
 const currencies = Request.path('/api/stream').query({ type: 'noise' });
 // Viewport settings
@@ -14,7 +29,7 @@ const INITIAL_VIEW_STATE = {
 };
 
 // DeckGL react component
-export default function Page() {
+export default function Home() {
   const { messages } = currencies.useStream();
   const plots = new LineLayer({
     id: 'plot',
@@ -64,11 +79,21 @@ export default function Page() {
     },
   });
 
+  const autocomplete = React.useRef();
+  React.useEffect(() => {
+    if (!autocomplete.current) return;
+    autocomplete.current.options = ['baggage', 'bag', 'bags', 'bad', 'abaggle'];
+  }, [autocomplete]);
   return (
-    <DeckGL
-      initialViewState={INITIAL_VIEW_STATE}
-      controller={true}
-      layers={[plots]}
-    />
+    <Page color={'red'}>
+      {/* <Header>YOOO</Header> */}
+      <auto-complete ref={autocomplete} />
+      {/* <RedHeader>YOOO</RedHeader> */}
+      {/* <DeckGL
+        initialViewState={INITIAL_VIEW_STATE}
+        controller={true}
+        layers={[plots]}
+      /> */}
+    </Page>
   );
 }

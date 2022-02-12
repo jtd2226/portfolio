@@ -22,7 +22,10 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-live": "^2.4.1",
-    "react-virtualized": "^9.22.3"
+    "react-virtualized": "^9.22.3",
+    "red-ui": "^1.0.0",
+    "red-ui-react": "^0.0.2",
+    "stonklesjs": "^1.5.7"
   },
   "devDependencies": {
     "eslint": "8.7.0",
